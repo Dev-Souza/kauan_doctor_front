@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Auth } from '../../services/auth/auth';
 import { LoginPayload } from '../../models/login-payload';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-layout-default',
@@ -14,7 +15,7 @@ export class LoginLayoutDefault {
   loginForm!: FormGroup;
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private auth: Auth) {
+  constructor(private fb: FormBuilder, private auth: Auth, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required]]
@@ -31,7 +32,14 @@ export class LoginLayoutDefault {
       this.auth.login(payload).subscribe({
         next: (res) => {
           console.log('Login bem-sucedido: ', res);
-          // Fazer lógica de redirecionamento
+          // Lógica de redirecionamento
+          if(res.role == 'ROLE_MEDICO'){
+            // Redirecionamento para o médico
+            this.router.navigate(['/medico'])
+          } else {
+            // Redirecionamento para paciente
+            this.router.navigate(['/paciente'])
+          }
         },
         error: (err) => {
           console.error('Erro no login:', err);
