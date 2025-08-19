@@ -8,7 +8,7 @@ import { LoginPayload } from '../../models/login-payload';
   providedIn: 'root'
 })
 export class Auth {
-  private apiUrl = `${environment.apiUrl}/auth/login`;
+  private apiUrl = `${environment.apiUrl}auth/login`;
 
   constructor(private http: HttpClient) { }
 
