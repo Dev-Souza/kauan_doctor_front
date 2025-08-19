@@ -1,40 +1,45 @@
-<div class="p-6 bg-gray-100 min-h-screen">
-  <h1 class="text-2xl font-bold text-blue-700 mb-4">Painel do Médico</h1>
+<div class="p-6 bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen">
+  <h1 class="text-3xl font-bold text-blue-800 mb-6 border-b pb-2 text-center">Painel do Médico</h1>
 
   <!-- Agenda -->
-  <section class="mb-6">
-    <h2 class="text-xl font-semibold text-gray-800 mb-2">Agenda disponível</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <div *ngFor="let horario of agendaDisponivel" class="bg-white p-4 rounded shadow">
-        <p class="font-medium">{{ horario.dia }}</p>
-        <ul class="mt-2 text-sm text-gray-600">
-          <li *ngFor="let hora of horario.horas">{{ hora }}</li>
+  <section class="mb-10">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Agenda disponível</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div *ngFor="let horario of agendaDisponivel" class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <p class="text-lg font-semibold text-blue-700 text-center">{{ horario.dia }}</p>
+        <ul class="mt-3 space-y-1 text-gray-600 text-sm">
+          <li *ngFor="let hora of horario.horas" class="pl-2 border-l-4 border-blue-500">{{ hora }}</li>
         </ul>
       </div>
     </div>
   </section>
 
   <!-- Consultas marcadas -->
-  <section class="mb-6">
-    <h2 class="text-xl font-semibold text-gray-800 mb-2">Consultas marcadas</h2>
+  <section class="mb-10">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Consultas marcadas</h2>
     <div *ngIf="consultas.length > 0; else semConsultas">
-      <div *ngFor="let consulta of consultas" class="bg-white p-4 rounded shadow mb-2">
-        <p><strong>Paciente:</strong> {{ consulta.paciente }}</p>
-        <p><strong>Data:</strong> {{ consulta.data }}</p>
-        <p><strong>Hora:</strong> {{ consulta.hora }}</p>
+      <div *ngFor="let consulta of consultas" class="bg-white p-6 rounded-xl shadow-md mb-4 hover:shadow-lg transition">
+        <p><strong class="text-blue-700">Paciente:</strong> {{ consulta.paciente }}</p>
+        <p><strong class="text-blue-700">Data:</strong> {{ consulta.data }}</p>
+        <p><strong class="text-blue-700">Hora:</strong> {{ consulta.hora }}</p>
       </div>
     </div>
     <ng-template #semConsultas>
-      <p class="text-gray-500">Nenhuma consulta marcada.</p>
+      <p class="text-gray-500 italic text-center">Nenhuma consulta marcada.</p>
     </ng-template>
   </section>
 
   <!-- Anotações -->
   <section>
-    <h2 class="text-xl font-semibold text-gray-800 mb-2">Anotações</h2>
-    <textarea (ngModel)="anotacoes" rows="5" class="w-full p-4 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-    <button (click)="salvarAnotacoes()" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-      Salvar
-    </button>
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Anotações</h2>
+    <textarea (ngModel)="anotacoes" rows="5"
+      class="w-full p-4 border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+      placeholder="Escreva suas observações aqui..."></textarea>
+    <div class="flex justify-center">
+      <button (click)="salvarAnotacoes()"
+        class="mt-4 inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-xl hover:bg-blue-700 transition">
+        💾 Salvar
+      </button>
+    </div>
   </section>
 </div>
