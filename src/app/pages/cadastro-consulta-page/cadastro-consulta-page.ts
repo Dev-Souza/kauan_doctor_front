@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CadastroConsultaPayload } from '../../models/cadastro-consulta-payload';
 import { StatusConsulta } from '../../models/enums/status-consulta-enum';
+import { HeaderPattern } from "../../components/headers/header-pattern/header-pattern";
 
 @Component({
   selector: 'app-cadastro-consulta-page',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HeaderPattern],
   templateUrl: './cadastro-consulta-page.html',
   styleUrl: './cadastro-consulta-page.css'
 })
