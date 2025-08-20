@@ -32,6 +32,10 @@ export class LoginLayoutDefault {
       this.auth.login(payload).subscribe({
         next: (res) => {
           console.log('Login bem-sucedido: ', res);
+          // Salvando o id da pessoa que logou
+          localStorage.setItem('idLogado', res.idLogado);
+          // Salvando token
+          localStorage.setItem('token', res.token);
           // Lógica de redirecionamento
           if(res.role == 'ROLE_MEDICO'){
             // Redirecionamento para o médico
