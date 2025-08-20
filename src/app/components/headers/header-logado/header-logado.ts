@@ -8,13 +8,14 @@ import { Router } from '@angular/router';
   styleUrl: './header-logado.css'
 })
 export class HeaderLogado {
+  constructor(private router: Router){}
+  
   usuario = {
     nome: 'Kauan'
   }
   
-  router!: Router
-  
   logout() {
+    localStorage.clear();
     this.router.navigate(['/login'])
   }
 }
