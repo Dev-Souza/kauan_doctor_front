@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-painel-medico',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './painel-medico.html',
   styleUrl: './painel-medico.css'
 })
