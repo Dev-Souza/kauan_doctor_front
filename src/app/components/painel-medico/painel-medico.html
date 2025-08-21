@@ -4,8 +4,17 @@
   <!-- Agenda -->
   <section class="mb-10">
     <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Agenda disponível</h2>
+
+    <div class="flex justify-end mb-6">
+      <a href="/agenda"
+        class="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">
+        ➕ Cadastrar horário
+      </a>
+    </div>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div *ngFor="let horario of agendaDisponivel" class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+      <div *ngFor="let horario of agendaDisponivel"
+        class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
         <p class="text-lg font-semibold text-blue-700 text-center">{{ horario.dia }}</p>
         <ul class="mt-3 space-y-1 text-gray-600 text-sm">
           <li *ngFor="let hora of horario.horas" class="pl-2 border-l-4 border-blue-500">{{ hora }}</li>
@@ -27,19 +36,5 @@
     <ng-template #semConsultas>
       <p class="text-gray-500 italic text-center">Nenhuma consulta marcada.</p>
     </ng-template>
-  </section>
-
-  <!-- Anotações -->
-  <section>
-    <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Anotações</h2>
-    <textarea [(ngModel)]="anotacoes" rows="5"
-      class="w-full p-4 border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-      placeholder="Escreva suas observações aqui..."></textarea>
-    <div class="flex justify-center">
-      <button (click)="salvarAnotacoes()"
-        class="mt-4 inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-xl hover:bg-blue-700 transition">
-        💾 Salvar
-      </button>
-    </div>
   </section>
 </div>
