@@ -4,6 +4,7 @@ import { MedicoPage } from './pages/medico-page/medico-page';
 import { PacientePage } from './pages/paciente-page/paciente-page';
 import { CadastroPage } from './pages/cadastro-page/cadastro-page';
 import { CadastroConsultaPage } from './pages/cadastro-consulta-page/cadastro-consulta-page';
+import { CadastroAgendaPage } from './pages/cadastro-agenda-page/cadastro-agenda-page';
 
 export const routes: Routes = [
     { path: 'login', component: LoginPage },
@@ -11,5 +12,6 @@ export const routes: Routes = [
     { path: 'medico', component: MedicoPage },
     { path: 'paciente', component: PacientePage },
     { path: 'cadastro', component: CadastroPage },
-    { path: 'consulta', component: CadastroConsultaPage }
+    { path: 'consulta', component: CadastroConsultaPage },
+    { path: 'agenda', component: CadastroAgendaPage }
 ];
