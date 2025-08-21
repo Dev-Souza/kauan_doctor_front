@@ -36,6 +36,8 @@ export class LoginLayoutDefault {
           localStorage.setItem('idLogado', res.idLogado);
           // Salvando token
           localStorage.setItem('token', res.token);
+          // Salvando a role para usar-lá no header logado
+          localStorage.setItem('role', res.role)
           // Lógica de redirecionamento
           if(res.role == 'ROLE_MEDICO'){
             // Redirecionamento para o médico
